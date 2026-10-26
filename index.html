@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiệm Ăn Vặt Gấu Con - Đồ Ăn Vặt Ngon & Rẻ</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome để dùng icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header class="header">
+        <div class="container nav-container">
+            <a href="#home" class="logo">🍿 Ăn Vặt <span>Gấu Con</span></a>
+            <ul class="nav-links">
+                <li><a href="#home">Trang chủ</a></li>
+                <li><a href="#products">Sản phẩm</a></li>
+                <li><a href="#contact">Liên hệ</a></li>
+            </ul>
+            <div class="cart-btn" onclick="toggleCart()">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span id="cart-count">0</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- 1. Trang chủ (Hero Banner) -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Thiên Đường Ăn Vặt Giòn Cay, Đậm Vị</h1>
+            <p>Bánh tráng, khô gà, chân gà cay và hàng chục món ăn vặt tuổi thơ giao tận nơi siêu tốc!</p>
+            <a href="#products" class="btn btn-primary">Xem Menu Ngay</a>
+        </div>
+    </section>
+
+    <!-- 2. Danh mục sản phẩm -->
+    <section id="products" class="products-section container">
+        <h2 class="section-title">Danh Sách Món Ngon</h2>
+        
+        <!-- Bộ lọc sản phẩm -->
+        <div class="category-filters">
+            <button class="filter-btn active" onclick="filterCategory('all')">Tất cả</button>
+            <button class="filter-btn" onclick="filterCategory('kho')">Đồ sấy / Khô</button>
+            <button class="filter-btn" onclick="filterCategory('banhtrang')">Bánh tráng</button>
+            <button class="filter-btn" onclick="filterCategory('douong')">Nước giải khát</button>
+        </div>
+
+        <!-- Lưới sản phẩm được render từ JS -->
+        <div class="product-grid" id="product-list"></div>
+    </section>
+
+    <!-- Giỏ hàng Modal / Pop-up -->
+    <div id="cart-modal" class="cart-modal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h3>Giỏ Hàng Của Bạn</h3>
+                <span class="close-cart" onclick="toggleCart()">&times;</span>
+            </div>
+            <div id="cart-items" class="cart-items">
+                <!-- Danh sách sản phẩm trong giỏ -->
+            </div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <span>Tổng tiền:</span>
+                    <strong id="cart-total-price">0đ</strong>
+                </div>
+                <button class="btn btn-primary btn-block" onclick="checkout()">Thanh Toán Ngay</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. Liên hệ -->
+    <section id="contact" class="contact-section container">
+        <h2 class="section-title">Liên Hệ Với Chúng Tôi</h2>
+        <div class="contact-wrapper">
+            <div class="contact-info">
+                <h3>Thông Tin Tiệm</h3>
+                <p><i class="fa-solid fa-location-dot"></i> 123 Đường Ăn Vặt, Quận 1, TP. Hồ Chí Minh</p>
+                <p><i class="fa-solid fa-phone"></i> 0901 234 567</p>
+                <p><i class="fa-solid fa-envelope"></i> anvatgaucon@gmail.com</p>
+                <p><i class="fa-solid fa-clock"></i> Mở cửa: 08:00 - 22:30 hàng ngày</p>
+            </div>
+            <form class="contact-form" onsubmit="handleContact(event)">
+                <div class="form-group">
+                    <label>Họ và tên:</label>
+                    <input type="text" id="contact-name" required placeholder="Nguyễn Văn A">
+                </div>
+                <div class="form-group">
+                    <label>Số điện thoại:</label>
+                    <input type="tel" id="contact-phone" required placeholder="09xxxxxxx">
+                </div>
+                <div class="form-group">
+                    <label>Lời nhắn / Góp ý:</label>
+                    <textarea rows="4" id="contact-msg" required placeholder="Món ăn cần tư vấn..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Gửi Tin Nhắn</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Tiệm Ăn Vặt Gấu Con. Ngon mê ly - Giá hợp lý!</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
